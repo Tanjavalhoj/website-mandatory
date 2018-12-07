@@ -15,6 +15,13 @@
                     @endif
 
                     You are logged in!
+
+                    @foreach($posts as $post)
+                            {{$post->Username}}
+                            {{$post->Password}}
+
+                        @endforeach
+
                 </div>
             </div>
         </div>

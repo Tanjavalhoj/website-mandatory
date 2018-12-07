@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       $this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $client = new Client();
+        $response = $client->get('http://localhost:8000/api/youtubeuser/1');
+        if ($response->getStatusCode()) {
+            $posts = json_decode($response->getBody()->getContents());
+            return view('home', ['posts' => $posts]);
+        }
         return view('home');
     }
 }
