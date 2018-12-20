@@ -16,11 +16,20 @@
 
                     You are logged in!
 
-                    @foreach($posts as $post)
-                            {{$post->Username}}
-                            {{$post->Password}}
+                </div>
+                <div class="card-body">
 
-                        @endforeach
+
+                    <h4>Youtube user bruger data for den user med id = 1</h4>
+                    @foreach($posts as $post)
+                        {{$post->Username}} <br>
+                        {{$post->Password}} <br>
+                        {{$post->Firstname}} <br>
+                        {{$post->Lastname}} <br>
+                        {{$post->Birthday}} <br>
+                        {{$post->ChannelId}} <br>
+
+                    @endforeach
 
                 </div>
             </div>
